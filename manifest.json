@@ -1,0 +1,21 @@
+{
+  "name": "Frame Make",
+  "version": "0.2.1",
+  "manifest_version": 2,
+  "description": "Making Frames for Apty",
+  "homepage_url": "https://github.com/MisterFishStickz/FrameMaker",
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "Frame Maker"
+  },
+  "permissions": [
+    "https://*/*",
+    "http://*/*",
+    "tabs"
+  ]
+}
