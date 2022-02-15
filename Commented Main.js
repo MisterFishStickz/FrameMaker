@@ -6,12 +6,14 @@
     -textbox to be able to edit the script and see what it does
     -Languages?
     -add ability to write in another css selector
+
+    -Draggable out of the way? Or at least move to bottom of screen?
     */
 
     var maxMavSelectors = 2;
 
     //get username to ignore in titles
-    var username = document.querySelector('.avatar-initials,[src*="personImage?personId="]');
+    var username = document.querySelector('.avatar-initials,[src*="personImage?"]');
     username = username? username.getAttribute('title'): "DEFAULT_VALUE"
         
 
@@ -24,9 +26,7 @@
         var titles = document.querySelectorAll('[title]');
         //turn into Array
         titles = Array.from(titles);
-        //get username to ignore in titles
-        username = document.querySelector('.avatar-initials,[src*="personImage?personId="]').getAttribute('title');
-        
+            
         let acceptableTitles = [];
 
         for (let titleElement of titles) {
@@ -105,10 +105,17 @@
             }
 
             .titleMAV{
-                font-size: 2vh;
+                font-size: 24px;
                 font-weight: 600;
                 text-align: center;
                 margin: 16px;
+            }
+
+            .textMAV{
+                font-size: 16px;
+                font-weight: 400;
+                text-align: center;
+                margin: 7px;
             }
 
             .footerMAV{
@@ -168,7 +175,11 @@
 
         let title = document.createElement("div");
         title.className = "titleMAV";
-        title.textContent = "Frame Maker 0.2";
+        title.textContent = "Frame Maker 2.0";
+
+        let subtitle = document.createElement("div");
+        subtitle.className = "textMAV";
+        subtitle.textContent = "Use this tool to create frames for Apty, by selecting two elements from the list below that have title attributes.";
 
         let editBox = document.createElement("div");
 
@@ -241,6 +252,7 @@
         footer.appendChild(btnSubmit);
 
         popoverBodyMAV.appendChild(title);
+        popoverBodyMAV.appendChild(subtitle);
         popoverBodyMAV.appendChild(dynamicTable);
         popoverBodyMAV.appendChild(footer);
 
